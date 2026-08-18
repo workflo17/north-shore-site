@@ -1,0 +1,676 @@
+<title>Margie Horowitz Real Estate</title>
+<meta name="robots" content="noindex, nofollow">
+<style>
+  :root {
+    --ground: #F6F5F0;
+    --surface: #FFFFFF;
+    --surface-2: #EDECE4;
+    --sand: #E4E2D6;
+    --deep: #17242A;
+    --ink: #17242A;
+    --ink-2: #4B5A61;
+    --ink-3: #7E8B8F;
+    --on-deep: #F1F0EA;
+    --on-deep-2: #A9B6B9;
+    --line: #DADCD2;
+    --line-soft: #E9EAE1;
+    --brass: #8C6115;
+    --brass-lift: #A97A22;
+    --brass-ink: #FFFFFF;
+    --brass-soft: #F3E9D4;
+    --verdigris: #2E6558;
+    --verdigris-soft: #E0EBE6;
+    --shadow: 0 1px 2px rgba(22,35,42,.04), 0 16px 40px -24px rgba(22,35,42,.26);
+    --display: "Iowan Old Style", "Palatino Linotype", Palatino, "Book Antiqua", Georgia, serif;
+    --body: system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    --mono: ui-monospace, "Cascadia Mono", "SF Mono", Consolas, "Liberation Mono", monospace;
+  }
+
+  * { box-sizing: border-box; }
+  body {
+    margin: 0; background: var(--ground); color: var(--ink);
+    font-family: var(--body); font-size: 17px; line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+  }
+  .bound { max-width: 1120px; margin: 0 auto; padding: 0 24px; }
+  @media (max-width: 560px) { .bound { padding: 0 18px; } }
+
+  .draftbar {
+    background: var(--brass-soft); border-bottom: 1px solid var(--brass);
+    color: var(--brass); font-family: var(--mono); font-size: 11px;
+    letter-spacing: .1em; text-transform: uppercase; text-align: center; padding: 8px 18px;
+  }
+
+  /* ---------- nav ---------- */
+  nav.top { background: var(--ground); border-bottom: 1px solid var(--line); }
+  nav.top .inner {
+    display: flex; align-items: center; justify-content: space-between;
+    gap: 20px; padding-top: 20px; padding-bottom: 20px; flex-wrap: wrap;
+  }
+  nav.top .mark {
+    font-family: var(--display); font-size: 1.25rem; font-weight: 600;
+    letter-spacing: -.01em; color: var(--ink); text-decoration: none;
+  }
+  nav.top .mark span {
+    display: block; font-family: var(--mono); font-size: 9px; letter-spacing: .18em;
+    text-transform: uppercase; color: var(--brass); margin-top: 4px; font-weight: 400;
+  }
+  nav.top ul { list-style: none; display: flex; gap: 26px; margin: 0; padding: 0; flex-wrap: wrap; align-items: center; }
+  nav.top a.lnk { color: var(--ink-2); text-decoration: none; font-size: 14px; }
+  nav.top a.lnk:hover { color: var(--brass); }
+  nav.top a.call {
+    color: var(--ink); font-family: var(--mono); font-size: 13px; text-decoration: none;
+    border: 1px solid var(--line); padding: 9px 16px; border-radius: 3px;
+  }
+  nav.top a.call:hover { border-color: var(--brass); color: var(--brass); }
+  a:focus-visible, button:focus-visible { outline: 2px solid var(--brass); outline-offset: 3px; }
+
+  /* ---------- hero ---------- */
+  .hero { background: var(--ground); padding: 68px 0 0; }
+  .hero .grid { display: grid; grid-template-columns: 1.05fr .95fr; gap: 56px; align-items: center; }
+  @media (max-width: 900px) { .hero .grid { grid-template-columns: 1fr; gap: 34px; } .hero { padding-top: 46px; } }
+
+  .hero .kicker {
+    font-family: var(--mono); font-size: 11px; letter-spacing: .2em;
+    text-transform: uppercase; color: var(--brass); margin: 0 0 20px;
+  }
+  .hero h1 {
+    font-family: var(--display); font-weight: 600;
+    font-size: clamp(2.4rem, 6.4vw, 4.2rem); line-height: 1.03;
+    letter-spacing: -.024em; margin: 0 0 22px; text-wrap: balance;
+  }
+  .hero h1 em { font-style: normal; color: var(--brass); }
+  .hero .sub { font-size: clamp(1.02rem, 2vw, 1.18rem); color: var(--ink-2); max-width: 46ch; margin: 0 0 30px; }
+  .hero .ctas { display: flex; gap: 12px; flex-wrap: wrap; }
+
+  .heroart {
+    background: var(--sand); border: 1px solid var(--line); border-radius: 6px;
+    padding: 34px 30px; box-shadow: var(--shadow); position: relative;
+  }
+  .heroart svg { width: 100%; height: auto; display: block; color: var(--brass); }
+  .heroart .tag {
+    position: absolute; left: 0; bottom: -1px;
+    background: var(--ground); border: 1px solid var(--line); border-left: none; border-bottom: none;
+    border-radius: 0 4px 0 5px; padding: 8px 14px;
+    font-family: var(--mono); font-size: 9.5px; letter-spacing: .12em;
+    text-transform: uppercase; color: var(--ink-3);
+  }
+
+  a.btn {
+    display: inline-block; text-decoration: none; font-weight: 650;
+    font-size: 15.5px; padding: 14px 26px; border-radius: 3px; border: 1px solid transparent;
+  }
+  a.btn.solid { background: var(--brass); color: var(--brass-ink); }
+  a.btn.solid:hover { filter: brightness(1.1); }
+  a.btn.line { border-color: var(--line); color: var(--ink); background: var(--surface); }
+  a.btn.line:hover { border-color: var(--brass); color: var(--brass); }
+
+  /* stat rail */
+  .rail { display: grid; grid-template-columns: repeat(3, 1fr); border-top: 1px solid var(--line); margin-top: 62px; }
+  .rail div { padding: 26px 26px 30px; border-right: 1px solid var(--line); }
+  .rail div:last-child { border-right: none; }
+  .rail .v {
+    font-family: var(--display); font-size: clamp(1.9rem, 4.2vw, 2.7rem);
+    line-height: 1; color: var(--brass); display: block; margin-bottom: 10px;
+  }
+  .rail .k {
+    font-family: var(--mono); font-size: 10px; letter-spacing: .12em;
+    text-transform: uppercase; color: var(--ink-3); line-height: 1.5; display: block;
+  }
+  @media (max-width: 700px) {
+    .rail { grid-template-columns: 1fr; margin-top: 40px; }
+    .rail div { border-right: none; border-bottom: 1px solid var(--line); padding: 20px 0 22px; }
+    .rail div:last-child { border-bottom: none; }
+  }
+
+  /* ---------- sections ---------- */
+  section { padding: 76px 0; }
+  section.tight { padding: 58px 0; }
+  section.alt { background: var(--surface-2); }
+
+  .eyebrow {
+    font-family: var(--mono); font-size: 11px; letter-spacing: .18em;
+    text-transform: uppercase; color: var(--brass); margin: 0 0 16px;
+  }
+  h2 {
+    font-family: var(--display); font-weight: 600;
+    font-size: clamp(1.8rem, 4.2vw, 2.6rem); line-height: 1.12;
+    letter-spacing: -.018em; margin: 0 0 18px; text-wrap: balance;
+  }
+  h3 { font-size: 1.08rem; font-weight: 650; margin: 0 0 8px; }
+  p { margin: 0 0 16px; }
+  .lede { font-size: 1.1rem; color: var(--ink-2); max-width: 60ch; }
+  .measure { max-width: 62ch; }
+
+  .split { display: grid; grid-template-columns: 1fr 1fr; gap: 56px; align-items: start; }
+  @media (max-width: 860px) { .split { grid-template-columns: 1fr; gap: 34px; } }
+
+  .cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 20px; margin-top: 34px; }
+  .split .cards { grid-template-columns: 1fr; }
+  .card { background: var(--surface); border: 1px solid var(--line); border-radius: 5px; padding: 26px 24px; }
+  .card .num {
+    font-family: var(--mono); font-size: 11px; letter-spacing: .12em;
+    color: var(--brass); display: block; margin-bottom: 12px;
+  }
+  .card p { color: var(--ink-2); font-size: 15.5px; margin: 0; }
+
+  /* ---------- work gallery ---------- */
+  .work { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 22px; margin-top: 36px; }
+  .tile {
+    background: var(--surface); border: 1px solid var(--line);
+    border-radius: 5px; overflow: hidden;
+  }
+  .tile .frame {
+    background: var(--sand); border-bottom: 1px solid var(--line);
+    padding: 26px 24px 20px; position: relative;
+  }
+  .tile .frame svg { width: 100%; height: auto; display: block; color: var(--brass); opacity: .9; }
+  .tile .frame .badge {
+    position: absolute; top: 12px; right: 12px;
+    background: var(--surface); border: 1px solid var(--line); border-radius: 3px;
+    padding: 4px 9px; font-family: var(--mono); font-size: 9px;
+    letter-spacing: .1em; text-transform: uppercase; color: var(--ink-3);
+  }
+  .tile .meta { padding: 18px 20px 20px; }
+  .tile .meta .addr { font-weight: 650; display: block; margin-bottom: 3px; }
+  .tile .meta .town { color: var(--ink-3); font-size: 14px; display: block; margin-bottom: 12px; }
+  .tile .meta .figs { display: flex; gap: 18px; flex-wrap: wrap; }
+  .tile .meta .fig { }
+  .tile .meta .fig .n {
+    font-family: var(--mono); font-size: 15px; color: var(--ink);
+    font-variant-numeric: tabular-nums; display: block;
+  }
+  .tile .meta .fig .l {
+    font-family: var(--mono); font-size: 9px; letter-spacing: .1em;
+    text-transform: uppercase; color: var(--ink-3); display: block; margin-top: 2px;
+  }
+
+  .placeholder-note {
+    font-family: var(--mono); font-size: 10.5px; letter-spacing: .1em;
+    text-transform: uppercase; color: var(--brass);
+    border: 1px dashed var(--brass); border-radius: 3px;
+    padding: 9px 13px; display: inline-block; margin-top: 26px;
+  }
+
+  /* photo slots */
+  .slot {
+    background: var(--sand); border: 1px dashed var(--line); border-radius: 5px;
+    display: grid; place-items: center; color: var(--ink-3);
+    font-family: var(--mono); font-size: 10.5px; letter-spacing: .12em;
+    text-transform: uppercase; text-align: center; padding: 22px; min-height: 260px;
+  }
+  .slot.portrait { min-height: 420px; }
+
+  /* net sheet promo */
+  .promo { display: grid; grid-template-columns: 1.1fr .9fr; gap: 50px; align-items: center; }
+  @media (max-width: 860px) { .promo { grid-template-columns: 1fr; gap: 30px; } }
+  .promo .mock {
+    background: var(--surface); border: 1px solid var(--line);
+    border-radius: 6px; padding: 22px; box-shadow: var(--shadow);
+  }
+  .promo .mock .r {
+    display: flex; justify-content: space-between; gap: 14px;
+    padding: 9px 0; border-bottom: 1px solid var(--line-soft); font-size: 14px;
+  }
+  .promo .mock .r:last-child { border-bottom: none; }
+  .promo .mock .r .lbl { color: var(--ink-2); }
+  .promo .mock .r .val { font-family: var(--mono); font-variant-numeric: tabular-nums; color: var(--ink); }
+  .promo .mock .r.net {
+    background: var(--verdigris-soft); margin: 10px -22px -22px; padding: 16px 22px;
+    border-top: 2px solid var(--verdigris); border-radius: 0 0 5px 5px; align-items: baseline;
+  }
+  .promo .mock .r.net .lbl { font-weight: 700; color: var(--ink); }
+  .promo .mock .r.net .val { font-family: var(--display); font-size: 1.6rem; color: var(--verdigris); font-weight: 600; }
+  .promo .mock .cap {
+    font-family: var(--mono); font-size: 10px; letter-spacing: .12em;
+    text-transform: uppercase; color: var(--ink-3); margin: 0 0 14px;
+  }
+
+  .towns { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 26px; padding: 0; list-style: none; }
+  .towns li {
+    border: 1px solid var(--line); border-radius: 20px; padding: 8px 16px;
+    font-size: 14.5px; color: var(--ink-2); background: var(--surface);
+  }
+
+  .quotes { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 20px; margin-top: 32px; }
+  .quote {
+    background: var(--surface); border: 1px solid var(--line);
+    border-left: 3px solid var(--brass); border-radius: 4px; padding: 24px;
+  }
+  .quote p { font-family: var(--display); font-size: 1.08rem; line-height: 1.45; color: var(--ink); margin: 0 0 14px; }
+  .quote .who {
+    font-family: var(--mono); font-size: 10.5px; letter-spacing: .1em;
+    text-transform: uppercase; color: var(--ink-3);
+  }
+
+  .contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 50px; align-items: start; }
+  @media (max-width: 860px) { .contact-grid { grid-template-columns: 1fr; gap: 32px; } }
+  .form .field { margin-bottom: 15px; }
+  .form label { display: block; font-size: 13px; font-weight: 650; margin-bottom: 6px; }
+  .form input, .form textarea, .form select {
+    width: 100%; padding: 11px 12px; font: inherit; font-size: 15px;
+    background: var(--surface); color: var(--ink);
+    border: 1px solid var(--line); border-radius: 4px;
+  }
+  .form textarea { min-height: 96px; resize: vertical; }
+  .form input:focus-visible, .form textarea:focus-visible, .form select:focus-visible {
+    outline: 2px solid var(--brass); outline-offset: 1px;
+  }
+  .form button {
+    background: var(--brass); color: var(--brass-ink); border: none; border-radius: 4px;
+    padding: 13px 26px; font: inherit; font-size: 15.5px; font-weight: 650; cursor: pointer;
+  }
+  .form button:hover { filter: brightness(1.1); }
+  .contact-lines { font-size: 15.5px; }
+  .contact-lines dl { display: grid; grid-template-columns: auto 1fr; gap: 10px 20px; margin: 22px 0 0; }
+  .contact-lines dt {
+    font-family: var(--mono); font-size: 10.5px; letter-spacing: .1em;
+    text-transform: uppercase; color: var(--ink-3); padding-top: 3px;
+  }
+  .contact-lines dd { margin: 0; }
+
+  footer.site { background: var(--deep); color: var(--on-deep-2); padding: 50px 0 40px; font-size: 14px; }
+  footer.site .cols { display: grid; grid-template-columns: 1.4fr 1fr 1fr; gap: 40px; }
+  @media (max-width: 760px) { footer.site .cols { grid-template-columns: 1fr; gap: 26px; } }
+  footer.site .mark { font-family: var(--display); font-size: 1.15rem; color: var(--on-deep); margin: 0 0 10px; }
+  footer.site a { color: var(--on-deep-2); text-decoration: none; }
+  footer.site a:hover { color: var(--brass-lift); }
+  footer.site ul { list-style: none; margin: 0; padding: 0; display: grid; gap: 8px; }
+  footer.site h4 {
+    font-family: var(--mono); font-size: 10px; letter-spacing: .14em;
+    text-transform: uppercase; color: var(--brass-lift); margin: 0 0 14px; font-weight: 500;
+  }
+  .legal {
+    margin-top: 38px; padding-top: 22px; border-top: 1px solid rgba(255,255,255,.14);
+    font-size: 12.5px; line-height: 1.6; color: var(--on-deep-2);
+  }
+  .legal .eho {
+    display: inline-block; border: 1px solid var(--on-deep-2); border-radius: 2px;
+    padding: 2px 7px; font-family: var(--mono); font-size: 9.5px;
+    letter-spacing: .1em; text-transform: uppercase; margin-right: 10px;
+  }
+
+  @page { size: Letter; margin: 0; }
+  @media print {
+    :root {
+      --ground: #F6F5F0; --surface: #FFFFFF; --surface-2: #EDECE4; --sand: #E4E2D6;
+      --deep: #17242A; --ink: #17242A; --ink-2: #4B5A61; --ink-3: #7E8B8F;
+      --on-deep: #F1F0EA; --on-deep-2: #B4C0C3;
+      --line: #DADCD2; --line-soft: #E9EAE1;
+      --brass: #8C6115; --brass-lift: #C08E2E; --brass-ink: #FFFFFF; --brass-soft: #F3E9D4;
+      --verdigris: #2E6558; --verdigris-soft: #E0EBE6; --shadow: none;
+    }
+    * { -webkit-print-color-adjust: exact !important; print-color-adjust: exact !important; }
+    body { font-size: 11.5pt; background: var(--ground); }
+    .bound { max-width: none; padding: 0 16mm; }
+    nav.top ul { display: none; }
+    .hero { padding-top: 28pt; break-inside: avoid; }
+    .hero h1 { font-size: 32pt; }
+    .rail { margin-top: 30pt; }
+    .rail .v { font-size: 21pt; }
+    section { padding: 32pt 0; break-inside: avoid; }
+    h2 { font-size: 20pt; break-after: avoid; }
+    h3 { break-after: avoid; }
+    .card, .quote, .tile, .promo .mock, .slot { break-inside: avoid; }
+    .split, .promo, .contact-grid, .hero .grid { gap: 24pt; }
+    .slot { min-height: 150pt; }
+    .slot.portrait { min-height: 240pt; }
+    a.btn { border: 1px solid currentColor; }
+    a.btn.solid { border-color: transparent; }
+    footer.site { break-inside: avoid; padding: 30pt 0 26pt; }
+  }
+</style>
+
+<p class="draftbar">Design concept prepared by Don &middot; not a live website</p>
+
+<nav class="top">
+  <div class="bound inner">
+    <a class="mark" href="#top">Margie Horowitz<span>North Shore Long Island</span></a>
+    <ul>
+      <li><a class="lnk" href="#selling">Selling</a></li>
+      <li><a class="lnk" href="#recent">Recent work</a></li>
+      <li><a class="lnk" href="#areas">Areas</a></li>
+      <li><a class="lnk" href="#about">About</a></li>
+      <li><a class="call" href="#contact">Book a valuation</a></li>
+    </ul>
+  </div>
+</nav>
+
+<header class="hero" id="top">
+  <div class="bound">
+    <div class="grid">
+      <div>
+        <p class="kicker">Syosset and the North Shore</p>
+        <h1>Most of my listings sell in <em>under thirty days</em>.</h1>
+        <p class="sub">A house that sits loses more than time. It loses your negotiating position, because every buyer walking through a listing that has been sitting is doing arithmetic about what you will take.</p>
+        <div class="ctas">
+          <a class="btn solid" href="https://workflo17.github.io/net-sheet/">See what you would walk away with</a>
+          <a class="btn line" href="#contact">Book a valuation</a>
+        </div>
+      </div>
+      <div class="heroart">
+        <svg viewBox="0 0 420 300" role="img" aria-label="Line illustration of a North Shore colonial house">
+          <g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M40 148 L210 44 L380 148" />
+            <path d="M70 130 L70 250 L350 250 L350 130" />
+            <path d="M28 152 L210 40 L392 152" opacity=".45" />
+            <rect x="186" y="188" width="48" height="62" />
+            <path d="M210 188 L210 250" opacity=".5" />
+            <rect x="104" y="160" width="46" height="46" />
+            <path d="M127 160 L127 206 M104 183 L150 183" opacity=".5" />
+            <rect x="270" y="160" width="46" height="46" />
+            <path d="M293 160 L293 206 M270 183 L316 183" opacity=".5" />
+            <rect x="104" y="222" width="46" height="28" />
+            <rect x="270" y="222" width="46" height="28" />
+            <path d="M280 104 L280 62 L306 62 L306 126" />
+            <path d="M274 62 L312 62" />
+            <path d="M18 250 L402 250" opacity=".55" />
+            <path d="M44 250 L44 226 M60 250 L60 232" opacity=".3" />
+            <path d="M360 250 L360 226 M376 250 L376 232" opacity=".3" />
+          </g>
+        </svg>
+        <span class="tag">Photography to be supplied</span>
+      </div>
+    </div>
+    <div class="rail">
+      <div><span class="v">Under 30</span><span class="k">Days on market for<br>most of my listings</span></div>
+      <div><span class="v">No. 1</span><span class="k">Selling agent in<br>The Groves, 2017</span></div>
+      <div><span class="v">Year one</span><span class="k">First multi-million dollar<br>producer award</span></div>
+    </div>
+  </div>
+</header>
+
+<section id="selling">
+  <div class="bound split">
+    <div>
+      <p class="eyebrow">Thinking about selling</p>
+      <h2>The price you list at is not the number that matters.</h2>
+      <p class="lede">What matters is what lands in your account after the mortgage is paid off, the transfer tax is taken, your attorney is paid, and the commission comes out. Most sellers never see that figure until they are already committed.</p>
+      <p class="measure">I would rather show it to you at the start. If the arithmetic does not work for you this year, you should know that before a sign goes in the lawn, not after three months of showings.</p>
+      <p><a class="btn solid" href="https://workflo17.github.io/net-sheet/">Run your net sheet</a></p>
+    </div>
+    <div class="cards" style="margin-top:0">
+      <div class="card">
+        <span class="num">01</span>
+        <h3>Priced to sell, not to flatter</h3>
+        <p>Some agents win the listing by agreeing with whatever number you hoped for. That listing sits, drops twice, and closes below where it should have started. I will tell you what your house will actually sell for and why.</p>
+      </div>
+      <div class="card">
+        <span class="num">02</span>
+        <h3>Marketed before it goes live</h3>
+        <p>Photography, floor plan, and a buyer list matched to your price range and street before the listing is public. The first ten days carry most of the attention a house will ever get.</p>
+      </div>
+      <div class="card">
+        <span class="num">03</span>
+        <h3>One person accountable</h3>
+        <p>You are not handed to a team member after signing. You get an update the same day every week whether or not there is news, which turns out to be the thing sellers say they miss most.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="alt" id="recent">
+  <div class="bound">
+    <p class="eyebrow">Recent work</p>
+    <h2>Sold across Syosset and the surrounding North Shore.</h2>
+    <p class="lede">Every listing below shows what it sold for and how long it took, because those are the two numbers a seller is actually deciding on.</p>
+
+    <div class="work">
+      <div class="tile">
+        <div class="frame">
+          <span class="badge">Sold</span>
+          <svg viewBox="0 0 300 150" role="img" aria-label="Line illustration of a colonial house">
+            <g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M30 74 L150 20 L270 74" />
+              <path d="M54 62 L54 130 L246 130 L246 62" />
+              <rect x="132" y="96" width="36" height="34" />
+              <rect x="80" y="84" width="32" height="28" />
+              <rect x="188" y="84" width="32" height="28" />
+              <path d="M96 84 L96 112 M80 98 L112 98" opacity=".5" />
+              <path d="M204 84 L204 112 M188 98 L220 98" opacity=".5" />
+              <path d="M200 50 L200 30 L218 30 L218 62" />
+              <path d="M16 130 L284 130" opacity=".5" />
+            </g>
+          </svg>
+        </div>
+        <div class="meta">
+          <span class="addr">Property address</span>
+          <span class="town">Syosset</span>
+          <div class="figs">
+            <div class="fig"><span class="n">$0,000,000</span><span class="l">Sold price</span></div>
+            <div class="fig"><span class="n">00</span><span class="l">Days on market</span></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="tile">
+        <div class="frame">
+          <span class="badge">New construction</span>
+          <svg viewBox="0 0 300 150" role="img" aria-label="Line illustration of a modern new-build house">
+            <g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M38 66 L150 24 L262 66" />
+              <path d="M62 58 L62 130 L238 130 L238 58" />
+              <rect x="86" y="76" width="54" height="34" />
+              <path d="M113 76 L113 110" opacity=".5" />
+              <rect x="164" y="76" width="50" height="34" />
+              <path d="M189 76 L189 110" opacity=".5" />
+              <rect x="132" y="104" width="36" height="26" />
+              <path d="M62 92 L238 92" opacity=".35" />
+              <path d="M16 130 L284 130" opacity=".5" />
+              <path d="M246 60 L246 40 L262 40 L262 66" opacity=".7" />
+            </g>
+          </svg>
+        </div>
+        <div class="meta">
+          <span class="addr">Property address</span>
+          <span class="town">Jericho</span>
+          <div class="figs">
+            <div class="fig"><span class="n">$0,000,000</span><span class="l">Sold price</span></div>
+            <div class="fig"><span class="n">00</span><span class="l">Days on market</span></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="tile">
+        <div class="frame">
+          <span class="badge">Sold</span>
+          <svg viewBox="0 0 300 150" role="img" aria-label="Line illustration of a ranch house">
+            <g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M26 80 L150 36 L274 80" />
+              <path d="M50 72 L50 130 L250 130 L250 72" />
+              <rect x="136" y="98" width="34" height="32" />
+              <rect x="74" y="90" width="40" height="26" />
+              <rect x="190" y="90" width="40" height="26" />
+              <path d="M94 90 L94 116" opacity=".5" />
+              <path d="M210 90 L210 116" opacity=".5" />
+              <path d="M12 130 L288 130" opacity=".5" />
+              <path d="M62 60 L62 44 L78 44 L78 66" opacity=".7" />
+            </g>
+          </svg>
+        </div>
+        <div class="meta">
+          <span class="addr">Property address</span>
+          <span class="town">Woodbury</span>
+          <div class="figs">
+            <div class="fig"><span class="n">$0,000,000</span><span class="l">Sold price</span></div>
+            <div class="fig"><span class="n">00</span><span class="l">Days on market</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <p class="placeholder-note">Placeholder: real listing photography, addresses and sold figures required</p>
+  </div>
+</section>
+
+<section id="netsheet">
+  <div class="bound promo">
+    <div>
+      <p class="eyebrow">Free, no obligation</p>
+      <h2>What would you actually walk away with?</h2>
+      <p>Every home value tool guesses at a list price. This one shows the number underneath it: your proceeds after the payoff, the New York transfer tax, attorney fees, and commission, calculated for Nassau and Suffolk rather than a national average.</p>
+      <p>It takes about ninety seconds and it does not put you on a call list. If the number surprises you, we can talk. If it does not, you have lost ninety seconds.</p>
+      <p style="margin-top:26px"><a class="btn solid" href="https://workflo17.github.io/net-sheet/">Run my net sheet</a></p>
+    </div>
+    <div class="mock" aria-hidden="true">
+      <p class="cap">Sample / Syosset</p>
+      <div class="r"><span class="lbl">Estimated sale price</span><span class="val">$1,200,000</span></div>
+      <div class="r"><span class="lbl">Commission</span><span class="val">-$60,000</span></div>
+      <div class="r"><span class="lbl">NYS transfer tax</span><span class="val">-$4,800</span></div>
+      <div class="r"><span class="lbl">Attorney</span><span class="val">-$2,000</span></div>
+      <div class="r"><span class="lbl">Title and recording</span><span class="val">-$900</span></div>
+      <div class="r"><span class="lbl">Mortgage payoff</span><span class="val">-$410,000</span></div>
+      <div class="r net"><span class="lbl">You walk away with</span><span class="val">$722,300</span></div>
+    </div>
+  </div>
+</section>
+
+<section class="alt">
+  <div class="bound">
+    <p class="eyebrow">What I specialize in</p>
+    <h2>Three kinds of seller, and they need different things.</h2>
+    <div class="cards">
+      <div class="card">
+        <h3>New construction</h3>
+        <p>I have sold new construction on the North Shore since before the current wave of teardowns, and was the top selling agent in The Groves. Builders need absorption, pre-construction marketing, and someone who can sell a house that is still framing. That is a different job from listing a resale and I treat it as one.</p>
+      </div>
+      <div class="card">
+        <h3>Investment property and flips</h3>
+        <p>Investors do not need hand holding, they need speed and a straight answer on what the finished product will bring. I work on the numbers, tell you when a project is priced wrong before you are in it, and move quickly when it is ready.</p>
+      </div>
+      <div class="card">
+        <h3>Homes lived in for decades</h3>
+        <p>The hardest sales are the ones where a family has been in the house thirty years. What to fix, what to leave, what the contents are worth, and how to do it without the whole thing becoming overwhelming. This part takes patience and I do not rush it.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="tight" id="areas">
+  <div class="bound">
+    <p class="eyebrow">Where I work</p>
+    <h2>Syosset and the surrounding North Shore.</h2>
+    <p class="lede">I know these streets and what has actually closed on them, which is different from knowing the county average.</p>
+    <ul class="towns">
+      <li>Syosset</li><li>Jericho</li><li>Woodbury</li><li>Plainview</li>
+      <li>Muttontown</li><li>Old Westbury</li><li>Roslyn</li><li>Williston Park</li>
+      <li>Port Washington</li><li>Manhasset</li><li>Oyster Bay</li><li>Locust Valley</li>
+      <li>Huntington</li><li>Cold Spring Harbor</li>
+    </ul>
+  </div>
+</section>
+
+<section id="about">
+  <div class="bound split">
+    <div class="slot portrait">Portrait of Margie<br>vertical, roughly 3:4</div>
+    <div>
+      <p class="eyebrow">About</p>
+      <h2>I have been doing this on the North Shore for a long time.</h2>
+      <p class="measure">I earned a multi-million dollar producer award in my first year in the business and have kept earning them since. I have outsold the competition in Syosset and the neighborhoods around it, and I broke records marketing and selling new construction, which is how I became the number one selling agent in The Groves.</p>
+      <p class="measure">What I am actually known for is marketing. Not the word, the practice: getting a house in front of the right buyers before it is public, pricing it so the first ten days do the work, and being straight with a seller about what their house will bring. It is why most of my listings sell in under a month.</p>
+      <p class="measure">If you are thinking about selling, or just want to know what your house is worth this year, call me. There is no version of that conversation where you end up owing me anything.</p>
+      <p style="margin-top:26px"><a class="btn line" href="#contact">Start a conversation</a></p>
+    </div>
+  </div>
+</section>
+
+<section class="tight alt">
+  <div class="bound">
+    <p class="eyebrow">From sellers I have worked with</p>
+    <h2>What clients say.</h2>
+    <div class="quotes">
+      <div class="quote">
+        <p>Client testimonial goes here. Pull the three strongest from Margie's existing reviews.</p>
+        <span class="who">Name, town</span>
+      </div>
+      <div class="quote">
+        <p>Client testimonial goes here. Prefer ones that mention speed or pricing accuracy.</p>
+        <span class="who">Name, town</span>
+      </div>
+      <div class="quote">
+        <p>Client testimonial goes here. One from a builder or investor would balance the set.</p>
+        <span class="who">Name, town</span>
+      </div>
+    </div>
+    <p class="placeholder-note">Placeholder: real reviews required before this page goes live</p>
+  </div>
+</section>
+
+<section id="contact">
+  <div class="bound contact-grid">
+    <div>
+      <p class="eyebrow">Get in touch</p>
+      <h2>Find out what your home is worth.</h2>
+      <p>Tell me the address and I will send you a real market analysis for your street, along with the net sheet showing what you would walk away with. No cost, and no obligation to list.</p>
+      <div class="contact-lines">
+        <dl>
+          <dt>Phone</dt><dd>Margie's direct line</dd>
+          <dt>Email</dt><dd>Margie's email address</dd>
+          <dt>Office</dt><dd>Brokerage office address</dd>
+        </dl>
+      </div>
+    </div>
+    <form class="form" onsubmit="event.preventDefault(); this.querySelector('button').textContent='Thank you, I will be in touch';">
+      <div class="field">
+        <label for="f-name">Your name</label>
+        <input id="f-name" type="text" autocomplete="name" required>
+      </div>
+      <div class="field">
+        <label for="f-addr">Property address</label>
+        <input id="f-addr" type="text" autocomplete="street-address">
+      </div>
+      <div class="field">
+        <label for="f-contact">Phone or email</label>
+        <input id="f-contact" type="text" required>
+      </div>
+      <div class="field">
+        <label for="f-when">When are you thinking of selling?</label>
+        <select id="f-when">
+          <option>As soon as possible</option>
+          <option>Within 3 months</option>
+          <option>6 to 12 months</option>
+          <option>Just want to know the value</option>
+        </select>
+      </div>
+      <div class="field">
+        <label for="f-note">Anything I should know</label>
+        <textarea id="f-note"></textarea>
+      </div>
+      <button type="submit">Request my valuation</button>
+    </form>
+  </div>
+</section>
+
+<footer class="site">
+  <div class="bound">
+    <div class="cols">
+      <div>
+        <p class="mark">Margie Horowitz</p>
+        <p style="margin:0 0 6px">Licensed Real Estate Salesperson</p>
+        <p style="margin:0">Berkshire Hathaway HomeServices<br>Laffey International Realty</p>
+      </div>
+      <div>
+        <h4>Sellers</h4>
+        <ul>
+          <li><a href="https://workflo17.github.io/net-sheet/">Net proceeds calculator</a></li>
+          <li><a href="#contact">Free home valuation</a></li>
+          <li><a href="#selling">How I price a home</a></li>
+          <li><a href="#recent">Recent work</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Areas</h4>
+        <ul>
+          <li><a href="#areas">Syosset</a></li>
+          <li><a href="#areas">Jericho and Woodbury</a></li>
+          <li><a href="#areas">Plainview</a></li>
+          <li><a href="#areas">North Shore</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="legal">
+      <p><span class="eho">Equal Housing Opportunity</span> All information is deemed reliable but is not guaranteed and should be independently verified. Net proceeds figures are estimates for planning only and are not a closing statement; your attorney and a full comparative market analysis produce the binding numbers. Commission rates are negotiable and are not set by any brokerage, board, or association.</p>
+      <p style="margin-bottom:0">Berkshire Hathaway HomeServices and the Berkshire Hathaway HomeServices symbol are registered service marks of Columbia Insurance Company, a Berkshire Hathaway affiliate. Office address, license number, and brokerage disclosures to be added before publication.</p>
+    </div>
+  </div>
+</footer>
