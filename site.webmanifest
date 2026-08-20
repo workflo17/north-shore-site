@@ -1,0 +1,14 @@
+{
+  "name": "Margie Horowitz, North Shore Long Island",
+  "short_name": "Margie Horowitz",
+  "description": "Listing agent for Syosset and the North Shore of Long Island.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#F3F0E7",
+  "theme_color": "#0D2231",
+  "icons": [
+    { "src": "/icon-192.png", "sizes": "192x192", "type": "image/png" },
+    { "src": "/icon-512.png", "sizes": "512x512", "type": "image/png" },
+    { "src": "/icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "maskable" }
+  ]
+}

@@ -4,9 +4,32 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Margie Horowitz &middot; North Shore Long Island Real Estate</title>
-<meta name="robots" content="noindex, nofollow">
+<!-- INDEXING:BEGIN --><meta name="robots" content="noindex, nofollow"><!-- INDEXING:END -->
 <meta name="theme-color" content="#0D2231">
 <meta name="description" content="Listing agent for Syosset and the North Shore of Long Island. See the closing record, run a net sheet, and find out what your house is worth this year.">
+
+<!-- SITEURL:BEGIN -->
+<link rel="canonical" href="https://north-shore-site.vercel.app/">
+<meta property="og:url" content="https://north-shore-site.vercel.app/">
+<meta property="og:image" content="https://north-shore-site.vercel.app/og.jpg">
+<!-- SITEURL:END -->
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Margie Horowitz, North Shore Long Island">
+<meta property="og:title" content="Five of my last nine listings sold above the asking price.">
+<meta property="og:description" content="The closing record for a Syosset listing agent, the misses included. Find out what your home is worth.">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Margie Horowitz, listing agent for Syosset and the North Shore of Long Island.">
+<meta property="og:locale" content="en_US">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Five of my last nine listings sold above the asking price.">
+<meta name="twitter:description" content="The closing record for a Syosset listing agent, the misses included.">
+
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="icon" href="/favicon-32.png" sizes="32x32" type="image/png">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<link rel="manifest" href="/site.webmanifest">
+
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Archivo:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,400&display=swap" rel="stylesheet">
@@ -543,6 +566,15 @@
   .field .err {
     margin: 8px 0 0; font-size: 13px; color: #F0A8A0;
   }
+  /* Honeypot: off-screen rather than display:none, because some bots skip
+     hidden fields but almost all of them fill an off-screen text input. */
+  .hp {
+    position: absolute; left: -9999px; top: auto;
+    width: 1px; height: 1px; overflow: hidden;
+  }
+  .form button[disabled] { opacity: .62; cursor: default; }
+  .form .sendfail { color: #F0B37E; }
+  .form .sendfail a { color: var(--verdigris-2); }
   .field input[aria-invalid="true"], .field textarea[aria-invalid="true"] {
     border-color: #C56A5E;
   }
@@ -577,11 +609,81 @@
     .rise { opacity: 1; transform: none; transition: none; }
   }
 </style>
+
+<!-- Structured data. Every field here is checkable against the sources in the
+     README. The brokerage and postal address are deliberately absent: two
+     brokerages are on file and only Margie can say which is current. Search
+     engines treat a wrong address worse than a missing one, so the block below
+     stays commented out until she confirms it. See DEPLOY.md, step 12. -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "RealEstateAgent",
+      "@id": "https://north-shore-site.vercel.app/#agent",
+      "name": "Margie Horowitz",
+      "url": "https://north-shore-site.vercel.app/",
+      "image": "https://north-shore-site.vercel.app/og.jpg",
+      "telephone": "+1-516-586-0245",
+      "jobTitle": "Licensed Real Estate Salesperson",
+      "description": "Listing agent working Syosset and the North Shore of Long Island, with nineteen years on this stretch of Nassau County.",
+      "knowsAbout": ["Home valuation", "Listing and marketing a home for sale", "Seller net proceeds", "Pricing strategy"],
+      "areaServed": [
+        { "@type": "City", "name": "Syosset", "address": { "@type": "PostalAddress", "addressRegion": "NY", "addressCountry": "US" } },
+        { "@type": "City", "name": "Glen Head", "address": { "@type": "PostalAddress", "addressRegion": "NY", "addressCountry": "US" } },
+        { "@type": "City", "name": "Glen Cove", "address": { "@type": "PostalAddress", "addressRegion": "NY", "addressCountry": "US" } },
+        { "@type": "City", "name": "Jericho", "address": { "@type": "PostalAddress", "addressRegion": "NY", "addressCountry": "US" } },
+        { "@type": "City", "name": "Woodbury", "address": { "@type": "PostalAddress", "addressRegion": "NY", "addressCountry": "US" } },
+        { "@type": "AdministrativeArea", "name": "Nassau County, New York" }
+      ],
+      "hasCredential": {
+        "@type": "EducationalOccupationalCredential",
+        "credentialCategory": "New York Real Estate Salesperson License",
+        "identifier": "40HO1125819"
+      },
+      "alumniOf": { "@type": "CollegeOrUniversity", "name": "Hofstra University" },
+      "sameAs": [
+        "https://www.homes.com/real-estate-agents/margie-horowitz/k2g7gxc/",
+        "https://www.fastexpert.com/agents/margie-horowitz-23671/"
+      ]
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://north-shore-site.vercel.app/#website",
+      "url": "https://north-shore-site.vercel.app/",
+      "name": "Margie Horowitz, North Shore Long Island",
+      "publisher": { "@id": "https://north-shore-site.vercel.app/#agent" },
+      "inLanguage": "en-US"
+    }
+  ]
+}
+</script>
+<!-- BROKERAGE:BEGIN  Uncomment and fill once Margie confirms, then delete this note.
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@id": "https://north-shore-site.vercel.app/#agent",
+  "@type": "RealEstateAgent",
+  "worksFor": { "@type": "RealEstateAgent", "name": "BROKERAGE NAME" },
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "STREET",
+    "addressLocality": "TOWN",
+    "addressRegion": "NY",
+    "postalCode": "ZIP",
+    "addressCountry": "US"
+  }
+}
+</script>
+BROKERAGE:END -->
 </head>
 <body>
 
 <a class="skip" href="#main">Skip to the main content</a>
+<!-- CONCEPTBAR:BEGIN -->
 <p class="conceptbar">Design concept prepared by Don &middot; <b>not a live website</b></p>
+<!-- CONCEPTBAR:END -->
 
 <nav class="nav">
   <div class="bound inner">
@@ -856,6 +958,10 @@
       <p class="note">Her Berkshire Hathaway HomeServices Laffey profile lists her in Williston Park, while the public sale record puts her at Americana Realty Group in Syosset. One of the two is out of date and only Margie can say which.</p>
     </div>
     <form class="form" id="valform" novalidate>
+      <div class="hp" aria-hidden="true">
+        <label for="f-company">Company</label>
+        <input id="f-company" name="company" type="text" tabindex="-1" autocomplete="off">
+      </div>
       <div class="field">
         <label for="f-name">Your name</label>
         <input id="f-name" name="name" type="text" autocomplete="name" placeholder="Jane Reilly…" required>
@@ -1116,9 +1222,13 @@ new IntersectionObserver((entries, obs) => {
 }, { threshold: .05 }).observe(carousel);
 
 /* ---------- the form ----------
-   No backend on a concept page, so this validates, reports, and stops. */
+   Checked in the browser for a fast answer, then posted to /api/lead, which
+   checks everything again because a browser check protects nobody. */
 const form = document.getElementById("valform");
 const status = document.getElementById("formstatus");
+const LOADED_AT = Date.now();
+const PHONE_HREF = document.querySelector('a[href^="tel:"]')?.getAttribute("href") || "tel:+15165860245";
+const PHONE_TEXT = document.querySelector('a[href^="tel:"]')?.textContent.trim() || "(516) 586-0245";
 
 const CHECKS = [
   { id: "f-name",    err: "e-name",    msg: "Please add your name so Margie knows who to call back." },
@@ -1137,7 +1247,32 @@ function clearError(check) {
 CHECKS.forEach(c => document.getElementById(c.id)
   .addEventListener("input", () => clearError(c)));
 
-form.addEventListener("submit", e => {
+/* Field errors the server sends back, keyed the same way as CHECKS. */
+function showServerErrors(fields) {
+  let firstBad = null;
+  Object.entries(fields).forEach(([name, msg]) => {
+    const check = CHECKS.find(c => c.id === `f-${name}`);
+    if (!check) return;
+    const input = document.getElementById(check.id);
+    const slot = document.getElementById(check.err);
+    input.setAttribute("aria-invalid", "true");
+    input.setAttribute("aria-describedby", check.err);
+    slot.textContent = msg;
+    slot.hidden = false;
+    if (!firstBad) firstBad = input;
+  });
+  firstBad?.focus();
+}
+
+function sendFailed(btn) {
+  btn.disabled = false;
+  btn.textContent = "Request my valuation";
+  status.classList.add("sendfail");
+  status.innerHTML = `That did not send. Please try once more, or call Margie directly on ` +
+    `<a href="${PHONE_HREF}">${PHONE_TEXT}</a>.`;
+}
+
+form.addEventListener("submit", async e => {
   e.preventDefault();
   let firstBad = null;
 
@@ -1153,16 +1288,64 @@ form.addEventListener("submit", e => {
   });
 
   if (firstBad) {
+    status.classList.remove("sendfail");
     status.textContent = "Two fields are needed before this can be sent.";
     firstBad.focus();
     return;
   }
 
-  const btn = form.querySelector("button");
-  btn.textContent = "Thank you, I will be in touch";
+  const btn = form.querySelector('button[type="submit"]');
   btn.disabled = true;
-  status.textContent = "Request sent. Margie will be in touch.";
+  btn.textContent = "Sending…";
+  status.classList.remove("sendfail");
+  status.textContent = "Sending your request.";
+
+  const payload = {
+    name: document.getElementById("f-name").value,
+    address: document.getElementById("f-addr").value,
+    contact: document.getElementById("f-contact").value,
+    timing: document.getElementById("f-when").value,
+    note: document.getElementById("f-note").value,
+    company: document.getElementById("f-company").value,
+    elapsed: Date.now() - LOADED_AT,
+    page: location.pathname + location.search,
+  };
+
+  try {
+    const res = await fetch("/api/lead", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(payload),
+    });
+
+    if (res.status === 422) {
+      const { fields } = await res.json();
+      btn.disabled = false;
+      btn.textContent = "Request my valuation";
+      status.textContent = "Two fields are needed before this can be sent.";
+      showServerErrors(fields || {});
+      return;
+    }
+    if (!res.ok) return sendFailed(btn);
+
+    const data = await res.json().catch(() => ({}));
+    if (!data.ok) return sendFailed(btn);
+
+    btn.textContent = "Thank you, I will be in touch";
+    status.textContent = "Request sent. Margie usually replies the same day.";
+    form.querySelectorAll("input, textarea, select").forEach(el => { el.readOnly = true; el.blur(); });
+    window.va?.("event", { name: "valuation_request" });
+  } catch {
+    sendFailed(btn);
+  }
 });
 </script>
+<!-- Vercel Web Analytics and Speed Insights. These paths only resolve once the
+     two products are switched on in the Vercel dashboard; until then the
+     requests 404 quietly and nothing else is affected. No cookies, so no
+     consent banner is required. -->
+<script defer src="/_vercel/insights/script.js"></script>
+<script defer src="/_vercel/speed-insights/script.js"></script>
+
 </body>
 </html>

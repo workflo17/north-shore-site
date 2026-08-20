@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Page not found &middot; Margie Horowitz</title>
+<meta name="robots" content="noindex">
+<meta name="theme-color" content="#0D2231">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="icon" href="/favicon-32.png" sizes="32x32" type="image/png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600&family=Fraunces:opsz,wght@9..144,500;9..144,600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --paper: #F3F0E7; --harbor: #0D2231; --verdigris: #2F7A69;
+    --ink: #14232C; --ink-2: #465A63; --line: #D6D0BE;
+    --display: "Fraunces", "Iowan Old Style", Palatino, Georgia, serif;
+    --body: "Archivo", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0; min-height: 100vh; background: var(--paper); color: var(--ink);
+    font-family: var(--body); font-size: 17px; line-height: 1.6;
+    display: grid; place-items: center; padding: 32px;
+  }
+  main { max-width: 34rem; }
+  .kicker {
+    font-size: 11px; letter-spacing: .18em; text-transform: uppercase;
+    color: var(--verdigris); font-weight: 600; margin: 0 0 18px;
+  }
+  h1 {
+    font-family: var(--display); font-weight: 600; font-size: clamp(30px, 6vw, 46px);
+    line-height: 1.12; letter-spacing: -.015em; margin: 0 0 18px;
+    font-variation-settings: "SOFT" 30, "WONK" 1;
+  }
+  p { color: var(--ink-2); margin: 0 0 28px; }
+  .ctas { display: flex; flex-wrap: wrap; gap: 12px; }
+  a.btn {
+    display: inline-flex; align-items: center; text-decoration: none;
+    font-weight: 600; font-size: 15px; padding: 13px 22px; border-radius: 2px;
+    transition: background .18s ease, color .18s ease, border-color .18s ease;
+  }
+  a.solid { background: var(--harbor); color: var(--paper); }
+  a.solid:hover { background: var(--verdigris); }
+  a.ghost { border: 1px solid var(--line); color: var(--ink); }
+  a.ghost:hover { border-color: var(--harbor); }
+  a.btn:focus-visible { outline: 2px solid var(--verdigris); outline-offset: 3px; }
+</style>
+</head>
+<body>
+<main>
+  <p class="kicker">404</p>
+  <h1>That page is not here.</h1>
+  <p>It may have moved, or the link may have a typo in it. The valuation form and the closing record are both on the front page.</p>
+  <div class="ctas">
+    <a class="btn solid" href="/#contact">Find out what your home is worth</a>
+    <a class="btn ghost" href="/">Back to the front page</a>
+  </div>
+</main>
+</body>
+</html>

@@ -1,0 +1,8 @@
+# INDEXING:BEGIN concept
+# The site is not public yet. Nothing is crawlable while the brokerage line and
+# the New York disclosures are unconfirmed. Flip with: python tools/configure.py --live
+User-agent: *
+Disallow: /
+# INDEXING:END
+
+Sitemap: https://north-shore-site.vercel.app/sitemap.xml

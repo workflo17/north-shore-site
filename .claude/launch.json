@@ -1,0 +1,11 @@
+{
+  "version": "0.0.1",
+  "configurations": [
+    {
+      "name": "north-shore-site",
+      "runtimeExecutable": "node",
+      "runtimeArgs": ["tools/dev_server.mjs"],
+      "port": 5130
+    }
+  ]
+}
