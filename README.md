@@ -146,6 +146,16 @@ ranch where the page had guessed a cape. A page whose argument is that every fig
 be checked cannot carry a guess, so the style labels are gone. Each row now shows the town,
 the bed count, and the square footage, all of which are in the record.
 
+## Where it is
+
+Live on Vercel at <https://north-shore-site-workflo17.vercel.app>, deployed from `master`
+on every push. It is `noindex` and carries the concept bar, so it is safe to send to
+Margie without it turning up in search.
+
+Note the domain. `north-shore-site.vercel.app` belongs to an unrelated consulting firm,
+so Vercel handed this project the longer alias without saying so. Read the real URL off
+the deployment before running `configure.py --url`.
+
 ## Putting it online
 
 [DEPLOY.md](DEPLOY.md) is the runbook: thirty-two steps from here to a working practice, in
