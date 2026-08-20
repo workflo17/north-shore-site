@@ -4,9 +4,10 @@ The formatted version of this runbook, with progress checkboxes, is at
 <https://claude.ai/code/artifact/87c72972-63ef-45bc-8794-35cca97da751>.
 This file is the same content, kept in the repo so it survives.
 
-Thirty-two steps in six phases: the profiles people actually search, then the website,
-then somewhere to keep the people who get in touch, then the wiring that carries a
-lead from the form to her phone.
+Thirty-eight steps in seven phases: the profiles people actually search, then the
+website, then somewhere to keep the people who get in touch, then the wiring that
+carries a lead from the form to her phone, and finally the campaigns that reach the
+sellers who are not looking yet.
 
 ## Why this order
 
@@ -623,6 +624,163 @@ someone's memory.
 
 Once three or four reviews exist they can come back onto the site and replace the
 testimonial placeholders from step 26 with something checkable.
+
+---
+
+## Phase 7: campaigns, and the one Margie already thought of (a season's work)
+
+Everything before this makes her findable by people already looking. This phase is
+about the people who are not looking yet, which on the North Shore is most of the
+sellers she wants.
+
+### 33. Anchor every campaign to the thing only she has
+
+Before any of the fun starts, the filter. Margie's difference is not that she is
+friendly or local or hardworking, because every agent on the Island says that and
+sellers have stopped hearing it. Her difference is on the website already: **she
+publishes the four sales that closed under asking.** Nobody else in Nassau does that.
+
+So every campaign gets one test. **Does this make somebody believe she tells sellers
+the truth?** A funny flier that does not is a wasted December. A funny flier that does
+is worth more than a year of boosted posts, because it is the one claim her
+competitors cannot copy without publishing their own misses.
+
+*Use this on every idea below:* ask what a seller knows about her after seeing it that
+they did not know before. If the answer is "she is fun on the internet", cut it or fix
+it. If the answer is "she will tell me the truth about my house", ship it.
+
+### 34. The December campaign: "You're going to sell your home. Alone?"
+
+Margie's own idea, and a good one. It earns its place for three reasons that have
+nothing to do with the joke.
+
+- **The timing is the strategy.** Almost nobody lists in December, so almost nobody
+  markets in December. It is also the exact month a homeowner planning a spring
+  listing starts thinking about it. Cheapest attention of the year, aimed at people
+  who are three months from a decision.
+- **The pun does real work.** "Alone" is not just the gag, it is the pitch: it names
+  for-sale-by-owner without saying anything insulting about the seller. The line asks
+  a question rather than making a claim, so it lands as a raised eyebrow, not a
+  lecture.
+- **The geography is a gift.** The most famous house in the film sits on the North
+  Shore, the one outside Chicago, and it is a big center-hall colonial that could pass
+  for Glen Head. She can say *"the most famous house on any North Shore"* and every
+  adult who reads it gets it, without a single protected word.
+
+**Where the legal line sits, and it matters more than usual here.** This is commercial
+advertising for a service, which is the weakest possible ground for a fair use or
+parody argument. The safe version is easy, so take it.
+
+*Fine to use:* the sentence "You're going to sell your home. Alone?", because those are
+ordinary English words. A snowy center-hall colonial at dusk with warm windows. Red and
+green. String lights. Anything shot or drawn from scratch.
+
+*Do not use:* the film's title as a headline, caption or hashtag; the poster's
+hands-to-cheeks pose; any still, clip or frame; the score; character or family names;
+the quotable lines; a photograph of the actual house in Winnetka. Do not imply any
+studio connection.
+
+Her brokerage's compliance people have to approve the piece anyway, which is another
+reason step 23 has to land before this does.
+
+### 35. Write and place the flier
+
+One side, 5.5 by 8.5 inches so four fit on a sheet, or a 6 by 9 postcard for mail.
+Copy first, design second.
+
+| Slot | What it says |
+|---|---|
+| Headline | **You're going to sell your home. Alone?** |
+| Subhead | Five of my last nine listings sold above the asking price. Four did not. Both numbers are on my website. |
+| Body | Selling it yourself saves the commission and costs you the pricing, the marketing, the negotiation and every hour of it. Before you decide, get the real number for your street. It is free, and I will tell you if you should wait. |
+| Call to action | See the whole record, misses included, plus a free valuation. A QR code, and the domain printed underneath for the people who will not scan it. |
+| Footer | Name, licence number, brokerage name and office address, and the Equal Housing Opportunity mark. New York requires the broker details on advertising, and this is advertising. |
+
+**The last line of the body is the whole campaign.** "I will tell you if you should
+wait" is a listing agent volunteering to talk someone out of a listing. It is the
+flier's proof of the thing the website argues, and it is what makes the joke land as
+confidence rather than as a gimmick.
+
+**Where it goes,** in order of how well it pays:
+
+1. **Every for-sale-by-owner sign in her towns.** Drive the routes on a Sunday. These
+   people have already decided to sell alone, which makes them the only audience the
+   headline is literally about. Hand delivered, not mailed.
+2. **Expired and withdrawn listings** from the last six months, off the MLS. They
+   tried, it did not work, and they are deciding what to do in spring right now.
+3. **The five streets around each of her nine past sales.** She has a real result to
+   point at within walking distance, which is the only mailing list where a cold piece
+   is not cold.
+
+Blanket-mailing a zip code is how this money gets wasted. The three lists above are a
+few hundred pieces, not a few thousand.
+
+### 36. Build the video engine, not the viral video
+
+Worth saying plainly to her: nobody can make a video go viral on purpose. What is
+buildable is a format that pays even when it does not, and a back catalogue that keeps
+working. Seven that fit a listing agent on this stretch of Long Island, roughly in
+order of how reliably they perform.
+
+| Format | What it is | Why it works for her |
+|---|---|---|
+| **The honest walkthrough** | She films one of her own listings and says out loud what is wrong with it. The bathroom is dated. The driveway is short. Here is what it will cost you. | The flagship. It is the closing record in video form, and almost no agent will do it, which is exactly why it travels. |
+| What $875,000 buys | One price, three towns, forty-five seconds. Syosset against Glen Cove against Massapequa Park. | The most dependable performer in real estate video, and she has sales in all three to pull from. |
+| "I told them not to" | Renovations that lose money on the North Shore. The wrong kitchen, the pool, the converted garage. | Sellers search this before they spend $40,000. It positions her as the person who saves you money before she makes any. |
+| The net sheet reveal | "It sold for $661,500. Here is what they actually walked away with." Real numbers, real deductions. | The site already has the calculator. Almost nobody publishes the gap between sale price and cheque. |
+| The thirty-day house | One listing, one clip a week, photography day through closing. | Serialised, so the audience comes back. Also the best listing-presentation asset she will ever own. |
+| Local knowledge | Which Syosset streets are in which school district. What the LIRR run really costs in time. Which blocks took water. | Nineteen years is the moat. An agent parachuting in from Queens cannot fake any of it. |
+| Reading the FSBO listing | She reads a real for-sale-by-owner ad and gently explains what it is going to cost them. | The December campaign as a running series, and the two feed each other. |
+
+Start with three formats, not seven. Run them for eight weeks, keep the two that get
+saved and shared, and drop the rest without ceremony.
+
+### 37. Set up the kit and the batching day
+
+The reason agents stop posting is never the camera. It is that every video is a
+separate act of will. Batching removes that.
+
+- **The kit:** her phone, a $20 clip-on microphone, and daylight. Nothing else. A $600
+  camera makes the video look more like an advert, which is worse.
+- **Vertical, thirty to sixty seconds,** with the point in the first three seconds. No
+  slow intro, no logo sting, no "hi guys".
+- **Burned-in captions, always.** Most people watch on mute. The editing app does this
+  automatically now; check the spelling of the town names, which it will get wrong.
+- **One file, three places:** Instagram Reels, TikTok, YouTube Shorts, posted natively
+  to each rather than sharing a link. Facebook gets it too through the page from step 3.
+- **The batching day:** one afternoon a month, six videos, at whichever listing she has
+  access to. Change her jacket between a couple so they do not look like one sitting.
+
+Six a month is one a week with two in hand for the week something goes wrong. That
+buffer is the difference between a channel that survives March and one that does not.
+
+### 38. Measure the right thing, and carry the required line
+
+**Views are the number that will mislead her.** A video seen by forty thousand people
+in Arizona is worth nothing. A video seen by nine hundred people in Syosset that gets
+thirty saves is worth a listing.
+
+| Watch | Ignore |
+|---|---|
+| **Saves and shares.** A save is somebody bookmarking her for spring. | View count on its own |
+| **Direct messages,** especially "are you taking listings" | Follower count |
+| **Where the viewers are.** Nassau or nothing. | Likes |
+| **Referrers in Vercel Analytics** from step 31, and leads in the CRM tagged to the campaign | Watch time on a thirty-second clip |
+
+The honest measurement window is a full season. Content compounds slowly and then all
+at once, and judging it at three weeks is how people quit at week four.
+
+**Two lines every single piece has to carry.**
+
+*The broker.* New York requires her advertising to carry the broker's name and office
+address, and that includes video captions and end cards, not just the flier. This is
+the same blocker as step 23, which is why the campaign cannot ship before it clears.
+
+*Fair Housing.* Never describe a neighbourhood by the people who live in it. Not the
+schools "being a certain kind", not "family area", not "safe", not who the buyers
+usually are. Talk about the houses, the taxes, the commute and the lot sizes. This is
+the trap that catches agents making town-comparison videos, and it is the one mistake
+in this phase with real consequences.
 
 ---
 
