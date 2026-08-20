@@ -4,8 +4,7 @@
   "trailingSlash": false,
   "functions": {
     "api/lead.js": {
-      "maxDuration": 15,
-      "memory": 512
+      "maxDuration": 15
     }
   },
   "headers": [

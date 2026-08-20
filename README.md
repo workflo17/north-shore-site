@@ -146,14 +146,37 @@ ranch where the page had guessed a cape. A page whose argument is that every fig
 be checked cannot carry a guess, so the style labels are gone. Each row now shows the town,
 the bed count, and the square footage, all of which are in the record.
 
+## Putting it online
+
+[DEPLOY.md](DEPLOY.md) is the runbook: twenty-four steps from here to a site on Vercel that
+ranks and delivers leads. Phases 1 to 3 can run today. Phase 5 waits on the four answers in
+"Four things that have to be settled" above.
+
 ## Running it
 
 ```bash
-python -m http.server 5140 --directory .
+node tools/dev_server.mjs            # site plus a working /api/lead on :5130
+node tools/test_lead_api.mjs         # 17 checks on the lead function
+python tools/configure.py --status   # indexing state, site URL, tofill count
+python tools/build_brand_assets.py   # rebuild og.jpg and the icon set
 ```
 
-Single file, no build step. `index.html` holds the markup, the styles, and the nine sales as a
-JS array. The only external dependency is Google Fonts (Fraunces and Archivo).
+No build step. `index.html` holds the markup, the styles, and the nine sales as a JS array.
+`api/lead.js` is the only server code and has no dependencies. The one external dependency in
+the browser is Google Fonts (Fraunces and Archivo).
+
+### The lead form
+
+It posts to `/api/lead`, a Vercel function that validates, screens bots with a honeypot and a
+submission-speed check, then writes the lead to the runtime log *before* attempting delivery,
+so an email outage cannot lose one. Email goes through Resend and a webhook can go anywhere
+that accepts a JSON POST. With no environment variables set at all it still validates and
+still logs. Appendix A of DEPLOY.md lists the variables.
+
+`tools/configure.py` owns the two switches that turn a concept into a public site: `--url`
+moves the site's address across all eight places it is written, and `--live` / `--concept`
+move the `noindex` tag, the `robots.txt` rule and the concept bar together. The round trip is
+lossless, so the switch is safe to throw both ways.
 
 ## The design
 
