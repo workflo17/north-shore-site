@@ -7,6 +7,7 @@
      RESEND_API_KEY     re_xxx from resend.com. Absent: no email is sent.
      LEAD_TO            where the email goes. Comma-separated for more than one.
      LEAD_FROM          verified sender, e.g. Margie Horowitz <leads@example.com>
+     HUBSPOT_TOKEN      private app token. Absent: no contact is created.
      LEAD_WEBHOOK_URL   optional POST target: Zapier, Make, Slack, Apps Script.
 
    With none of them set the function still validates and logs, so the form
@@ -119,6 +120,49 @@ async function sendEmail(lead) {
   }
 }
 
+/* HubSpot's free tier includes private apps and the contacts API, which is
+   enough to land a lead as a real contact without paying for Workflows. */
+async function sendCrm(lead) {
+  const token = process.env.HUBSPOT_TOKEN;
+  if (!token) return { channel: "crm", ok: false, skipped: "not configured" };
+
+  const [first, ...rest] = lead.name.split(" ");
+  const props = {
+    firstname: first,
+    lastname: rest.join(" "),
+    lifecyclestage: "lead",
+    hs_lead_status: "NEW",
+  };
+  props[lead.contactKind === "email" ? "email" : "phone"] = lead.contact;
+  if (lead.address) props.address = lead.address;
+
+  const detail = [
+    `Timing: ${lead.timing}`,
+    lead.note ? `Notes: ${lead.note}` : "",
+    `From the valuation form on ${lead.page}`,
+  ].filter(Boolean).join("\n");
+
+  const post = (properties) => fetch("https://api.hubapi.com/crm/v3/objects/contacts", {
+    method: "POST",
+    headers: { Authorization: `Bearer ${token}`, "Content-Type": "application/json" },
+    body: JSON.stringify({ properties }),
+    signal: AbortSignal.timeout(8000),
+  });
+
+  try {
+    let res = await post({ ...props, message: detail });
+    /* A portal missing the default `message` property rejects the whole write.
+       Retry with the properties every portal has rather than lose the contact. */
+    if (res.status === 400) res = await post(props);
+    /* 409 is HubSpot saying the email is already a contact. Already known is fine. */
+    if (res.status === 409) return { channel: "crm", ok: true, note: "already a contact" };
+    if (!res.ok) return { channel: "crm", ok: false, error: `hubspot ${res.status}: ${(await res.text()).slice(0, 200)}` };
+    return { channel: "crm", ok: true };
+  } catch (err) {
+    return { channel: "crm", ok: false, error: String(err && err.message || err) };
+  }
+}
+
 async function sendWebhook(lead) {
   const url = process.env.LEAD_WEBHOOK_URL;
   if (!url) return { channel: "webhook", ok: false, skipped: "not configured" };
@@ -191,11 +235,11 @@ module.exports = async function handler(req, res) {
      outage. `vercel logs` and the dashboard's Runtime Logs both show it. */
   console.log(JSON.stringify({ tag: "LEAD", ...lead }));
 
-  const delivery = await Promise.all([sendEmail(lead), sendWebhook(lead)]);
+  const delivery = await Promise.all([sendEmail(lead), sendCrm(lead), sendWebhook(lead)]);
   delivery.filter((d) => d.error).forEach((d) =>
     console.error(JSON.stringify({ tag: "LEAD_DELIVERY_FAILED", ...d })));
 
   return res.status(200).json({ ok: true, delivery });
 };
 
-module.exports.__test = { clean, looksReachable, emailBody, TIMINGS };
+module.exports.__test = { clean, looksReachable, emailBody, sendCrm, TIMINGS };

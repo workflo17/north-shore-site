@@ -148,9 +148,12 @@ the bed count, and the square footage, all of which are in the record.
 
 ## Putting it online
 
-[DEPLOY.md](DEPLOY.md) is the runbook: twenty-four steps from here to a site on Vercel that
-ranks and delivers leads. Phases 1 to 3 can run today. Phase 5 waits on the four answers in
-"Four things that have to be settled" above.
+[DEPLOY.md](DEPLOY.md) is the runbook: thirty-two steps from here to a working practice, in
+the order they have to happen. The profiles people actually search come first, because a
+Google Business Profile takes days to verify and the waiting may as well happen while the rest
+gets built. Then the site on Vercel, then the CRM, then the wiring that carries a lead from
+the form to her phone. Steps 1 to 22 can run without waiting on anyone. Publishing waits on
+the four answers in "Four things that have to be settled" above.
 
 ## Running it
 
@@ -169,9 +172,13 @@ the browser is Google Fonts (Fraunces and Archivo).
 
 It posts to `/api/lead`, a Vercel function that validates, screens bots with a honeypot and a
 submission-speed check, then writes the lead to the runtime log *before* attempting delivery,
-so an email outage cannot lose one. Email goes through Resend and a webhook can go anywhere
-that accepts a JSON POST. With no environment variables set at all it still validates and
-still logs. Appendix A of DEPLOY.md lists the variables.
+so an outage at any provider cannot lose one. Three channels follow, all independent: email
+through Resend, a contact in HubSpot, and a webhook that can go anywhere accepting a JSON
+POST. With no environment variables set at all it still validates and still logs. Appendix A
+of DEPLOY.md lists the variables, appendix C documents the HubSpot field mapping.
+
+`node tools/test_lead_api.mjs` is 26 checks over the whole thing, including the CRM channel's
+retry, duplicate and bad-token paths against a stubbed HubSpot.
 
 `tools/configure.py` owns the two switches that turn a concept into a public site: `--url`
 moves the site's address across all eight places it is written, and `--live` / `--concept`

@@ -78,8 +78,67 @@ check("the 6th submission from one IP inside 10 min is throttled",
   flood[5].status === 429 || flood[6].status === 429, flood.map((f) => f.status));
 check("every accepted lead is written to the log before delivery",
   logged.filter((l) => l.includes('"tag":"LEAD"')).length >= 3);
-check("with no keys set, delivery reports both channels as unconfigured",
-  r.ok.body.delivery?.every((d) => d.skipped === "not configured"), r.ok.body.delivery);
+check("with no keys set, all three delivery channels report unconfigured",
+  r.ok.body.delivery?.length === 3 && r.ok.body.delivery.every((d) => d.skipped === "not configured"), r.ok.body.delivery);
+
+/* ---- the CRM channel, against a stubbed HubSpot ---- */
+
+const LEAD = {
+  name: "Dana Whitcomb", contact: "dana@example.com", contactKind: "email",
+  address: "31 Split Rock Rd", timing: "Within 3 months", note: "Two tenants.", page: "/",
+};
+
+async function crmWith(replies) {
+  const calls = [];
+  const realFetch = globalThis.fetch;
+  globalThis.fetch = async (url, opts) => {
+    calls.push({ url, body: JSON.parse(opts.body), auth: opts.headers.Authorization });
+    const status = replies[calls.length - 1] ?? 200;
+    return { ok: status >= 200 && status < 300, status, text: async () => "stub" };
+  };
+  process.env.HUBSPOT_TOKEN = "pat-na1-test";
+  const result = await handler.__test.sendCrm(LEAD);
+  delete process.env.HUBSPOT_TOKEN;
+  globalThis.fetch = realFetch;
+  return { result, calls };
+}
+
+const happy = await crmWith([200]);
+check("CRM: a lead becomes one contact create call",
+  happy.result.ok === true && happy.calls.length === 1, happy.result);
+check("CRM: the token is sent as a bearer",
+  happy.calls[0].auth === "Bearer pat-na1-test");
+check("CRM: an email lead maps to the email property, not phone",
+  happy.calls[0].body.properties.email === "dana@example.com" && !happy.calls[0].body.properties.phone);
+check("CRM: the name is split across firstname and lastname",
+  happy.calls[0].body.properties.firstname === "Dana" && happy.calls[0].body.properties.lastname === "Whitcomb");
+check("CRM: timing and notes ride along in message",
+  happy.calls[0].body.properties.message.includes("Within 3 months") &&
+  happy.calls[0].body.properties.message.includes("Two tenants."));
+
+const retried = await crmWith([400, 200]);
+check("CRM: a 400 retries without the optional property instead of losing the contact",
+  retried.result.ok === true && retried.calls.length === 2 &&
+  !("message" in retried.calls[1].body.properties), retried.result);
+
+const dupe = await crmWith([409]);
+check("CRM: a known contact (409) counts as delivered",
+  dupe.result.ok === true && dupe.result.note === "already a contact", dupe.result);
+
+const broken = await crmWith([401]);
+check("CRM: a bad token reports the error rather than claiming success",
+  broken.result.ok === false && broken.result.error.includes("401"), broken.result);
+
+const phoneLead = { ...LEAD, contact: "(516) 555 0199", contactKind: "phone" };
+const realFetch2 = globalThis.fetch;
+let phoneProps;
+globalThis.fetch = async (u, o) => { phoneProps = JSON.parse(o.body).properties; return { ok: true, status: 200, text: async () => "" }; };
+process.env.HUBSPOT_TOKEN = "pat-na1-test";
+await handler.__test.sendCrm(phoneLead);
+delete process.env.HUBSPOT_TOKEN;
+globalThis.fetch = realFetch2;
+check("CRM: a phone lead maps to the phone property, not email",
+  phoneProps.phone === "(516) 555 0199" && !phoneProps.email, phoneProps);
 
 const { looksReachable, clean } = handler.__test;
 check("looksReachable: email", looksReachable("a@b.co") === "email");
