@@ -134,7 +134,7 @@ in this project, so anything Vercel guesses about compiling it will be wrong.
 
 | Field | What to set |
 |---|---|
-| Project Name | `north-shore-site`, which becomes `north-shore-site.vercel.app` |
+| Project Name | `north-shore-site`, which becomes `north-shore-site-workflo17.vercel.app` |
 | Framework Preset | **Other**. Not Next.js, not Vite. |
 | Root Directory | `./`, leave it alone |
 | Build Command | empty, override off |
@@ -142,13 +142,20 @@ in this project, so anything Vercel guesses about compiling it will be wrong.
 | Install Command | empty |
 | Environment Variables | skip, phase 4 handles these |
 
+**Watch out:** `project.vercel.app` is claimed globally, first come first served, and
+`north-shore-site.vercel.app` already belongs to an unrelated consulting firm. When
+the short name is taken Vercel silently gives the project a longer alias instead, in
+the shape `project-scope.vercel.app`. Read the real URL off the deployment rather
+than assuming it, and use that one in step 11, or the canonical tag ends up pointing
+at a stranger's website.
+
 Click **Deploy**.
 
 ### 8. Confirm the deploy, including the function
 
-    https://north-shore-site.vercel.app/              # the page, concept bar on top
-    https://north-shore-site.vercel.app/robots.txt    # must say Disallow: /
-    https://north-shore-site.vercel.app/api/lead      # must answer, not 404
+    https://north-shore-site-workflo17.vercel.app/              # the page, concept bar on top
+    https://north-shore-site-workflo17.vercel.app/robots.txt    # must say Disallow: /
+    https://north-shore-site-workflo17.vercel.app/api/lead      # must answer, not 404
 
 *Check:* opening `/api/lead` in a browser sends a GET, and the function answers
 `{"ok":false,"error":"Use POST."}`. That refusal is the proof it is alive. A 404

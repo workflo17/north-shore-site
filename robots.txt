@@ -5,4 +5,4 @@ User-agent: *
 Disallow: /
 # INDEXING:END
 
-Sitemap: https://north-shore-site.vercel.app/sitemap.xml
+Sitemap: https://north-shore-site-workflo17.vercel.app/sitemap.xml
