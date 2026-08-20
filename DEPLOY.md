@@ -217,44 +217,136 @@ commission. Build it before the form starts firing.
 
 ### 13. Understand what the CRM is actually for
 
-No clicking. Worth five minutes because the tool only helps if it is set up around
-the right problem.
+No clicking. It is the argument for the whole phase, and it is written to be read
+aloud or turned around on a laptop, because the person who has to believe it is
+Margie. Everything from here to the next heading is for her.
 
-A seller who fills in a valuation form is not going to list next week. On the North
-Shore the gap between "what is my house worth" and a signed listing agreement runs
-from three weeks to a year, and in that gap the agent who wins is the one still in
-touch on week six. Deals are rarely lost because a lead was bad. They are lost
-because somebody meant to call back on Thursday.
+#### The leak
 
-So a CRM is doing three jobs, and they are not equally important:
+Every agent has a version of the same one. Somebody calls in March asking what their
+house is worth. Margie talks to them, sends comps, they say they are thinking about
+spring next year. In September they list with somebody else.
 
-| Job | What it means here | Can a spreadsheet do it |
+Not because that agent was better. Because that agent called in July.
+
+Nothing about that story is a lead-generation problem. The lead was already hers. It
+was a memory problem, and it is the single most expensive one in the business,
+because the deal was closer to signed than any cold call will ever be.
+
+#### The question worth asking her, rather than a statistic
+
+**"How many people asked you what their house was worth last year and then never
+listed with anyone at all?"**
+
+She will have a number. It is usually larger than the person saying it expects, and
+it is a better argument than anything an industry report can supply, because it is
+hers. Some of those people genuinely changed their minds. Some went quiet because
+nobody stayed in front of them.
+
+Then the arithmetic, which only has to be run once. The Nassau median single-family
+price was $875,000 in June 2026. At a negotiated rate around two and a half per cent,
+the listing side of a median sale is roughly $22,000 before the brokerage split.
+Commission rates are negotiable and that figure is illustrative, but the shape holds:
+**recovering one deal a year that would otherwise have drifted is worth more than
+every other item on this runbook combined.** The tool costs nothing, so there is no
+break-even to reach.
+
+#### What the thing actually is
+
+Three jobs, and they are not equally important. The first two are the ones people
+think of, and the ones a notebook already half-solves.
+
+| Job | In practice | Her phone and a notebook |
 |---|---|---|
-| A list of everyone | Every person who ever asked, with their address and how to reach them | Yes |
-| A record of what was said | Calls, emails and notes on one timeline, so month four does not start from nothing | Badly |
-| **A reminder of what is next** | "Call the Cedar Lane seller on the 14th", showing up on the day | No |
+| A list of everyone | Every person who ever asked, with the address and how to reach them | Fine |
+| A record of what was said | Calls, emails and notes on one timeline, so month four does not start from nothing | Badly, and only if she wrote it down |
+| **A reminder of what is next** | "Call the Cedar Lane seller on the 14th" appearing on the 14th, without anyone remembering to look | **Not at all** |
 
-The third is where the money is, and it is the one a spreadsheet cannot do at all.
-That is the whole argument for a real CRM rather than the sheet in appendix B.
+The third one is the entire reason to do this. A CRM is not a database of people. She
+already has that, and after nineteen years she has it in better shape than any
+software will. What she does not have is a system that surfaces the right name on the
+right morning without her thinking about it. That is what she is being handed.
+
+#### One lead, all the way through
+
+The part to walk through slowly. It is the whole product in eight rows.
+
+| When | What happens | Who does it |
+|---|---|---|
+| Tue 9:14 | A homeowner on Split Rock Road fills in the valuation form | the website |
+| Tue 9:14 | Her phone buzzes with the name, the address and what they said | automatic |
+| Tue 9:14 | The same person appears in the CRM, marked New | automatic |
+| Tue 9:22 | She calls while they are still on the website. Six minutes. Books a walkthrough for Thursday. | Margie |
+| Tue 9:29 | Two taps: log the call, set the next task for Thursday | Margie |
+| Thu 8:00 | "Split Rock walkthrough" is sitting at the top of her task list | automatic |
+| Thu | Walkthrough, CMA and net sheet sent. They say spring, maybe. She sets a task for 1 February. | Margie |
+| 1 Feb | The name comes back up on its own. She calls. They are ready. | automatic |
+
+The competing agent who spoke to them that same week never called back in February.
+That is the only difference between the two of them, and it is worth the whole
+commission.
+
+Note what is in the "Margie" column: two calls and about thirty seconds of tapping.
+Everything else happens whether she remembers it or not. That ratio is the pitch.
+
+#### What her mornings look like
+
+She opens one screen. It shows the tasks due today, which on a normal week is two or
+three names. She makes those calls, which she was going to make anyway, and sets the
+next date before closing each one. Twenty minutes.
+
+No data entry, no weekly review, nothing to maintain. If it ever feels like more than
+that, it has been set up wrong, and step 15 is where that gets fixed.
+
+#### What it will not do, said plainly
+
+- It will not call anyone for her, or write anything for her.
+- It will not tell her anything about a person that she does not put in.
+- It does not replace her memory of people. It replaces her memory of dates, which is
+  the part that fails.
+- The free tier has no marketing automation and no mass email, which is deliberate.
+  Sellers on the North Shore do not want a drip campaign from their neighbour's agent.
+
+#### The objections she will actually raise
+
+| She says | The honest answer |
+|---|---|
+| "I keep it all in my head." | She keeps the *people* in her head, and she is better at that than any software. Nobody keeps forty follow-up dates in their head. This is a calendar for the ones that are not appointments yet. |
+| "I tried one and stopped." | Almost everyone does, usually because they were handed thirty fields to fill in per contact. This one is eight stages and a date. If it ever takes more than ten seconds a lead, it is set up wrong. |
+| "I don't have time to learn software." | Fifteen minutes once, to see the screen. After that it is the twenty minutes of calls she was making anyway. |
+| "What does it cost?" | Nothing. No time limit, no card, no trial that expires. The paid tiers are marketing automation she does not need at this volume. |
+| "Whose is it?" | Hers. The account is in her name and her email. Add yourself as a user so you can set it up, and she can remove you in one click. |
+| "What if I want out?" | Contacts export to a spreadsheet in two clicks and there is no contract. Worth saying out loud, because an agent should never be handed a system her marketing guy controls. |
+| "My brokerage has one." | Then use theirs, and the website can point at it instead. Worth checking before step 14, because a brokerage CRM she already logs into beats a better one she does not. Ask what happens to those contacts if she ever changes brokerage; that answer often decides it. |
+
+#### The one habit that makes or breaks it
+
+**Never close a record without setting the next date.** That is the whole discipline.
+Do that and the system works on its own. Skip it and the pipeline quietly turns back
+into a list, and a list has never reminded anyone of anything.
+
+#### Two things for you, not for her
 
 **Why HubSpot rather than a real estate CRM.** Follow Up Boss, kvCORE and Sierra are
 built for this industry and cost between $69 and $500 a month. What they add over
 HubSpot is IDX search, drip campaigns and lead-source routing, none of which matter
-until she has more leads than she can personally call. HubSpot's free tier has no
-time limit, no card, a million contacts, tasks with reminders, a deal pipeline,
-email logging, and an API the website can write to. Move to the industry tools when
-the volume justifies the bill.
+until she has more leads than she can personally call. HubSpot's free tier has no time
+limit, no card, a million contacts, tasks with reminders, a deal pipeline, email
+logging, and an API the website can write to. Move to the industry tools when the
+volume justifies the bill.
 
-**One piece of HubSpot vocabulary,** because it trips people up. A **contact** is a
-person. A **deal** is one potential transaction. The same contact can carry several
-deals over the years. The form creates contacts. You create the deal when the lead
-turns into a real conversation.
+**Contact against deal,** because the vocabulary trips people up and you need it in
+step 15. A **contact** is a person. A **deal** is one potential transaction. The same
+contact can carry several deals over the years. The form creates contacts. You create
+the deal when the lead turns into a real conversation.
 
 ### 14. Create the HubSpot account
 
 1. <https://www.hubspot.com/products/get-started-free>, take the free CRM. No card.
-2. Sign up with the address that should receive notifications, probably the same one
-   going into `LEAD_TO` in step 20.
+2. **Whose email signs up matters.** If she has already agreed, use hers and have her
+   add you at **Settings**, **Users and Teams**. If you are still building this to
+   show her, use yours: a portal is handed over later by adding her as a super admin
+   and stepping down, which takes two minutes and does not touch the data.
 3. Answer the onboarding questions and skip every optional step. It will offer to
    connect an inbox and import contacts; both can wait.
 4. Note which region your portal is in, `app.hubspot.com` or `app-eu1.hubspot.com`.
