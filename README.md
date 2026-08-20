@@ -43,6 +43,19 @@ and what sells harder to a seller anyway, is that she lands above ask more often
 The four that missed are on the page too. Showing them is the point, because the page argues that
 she tells sellers the truth, so it has to.
 
+### Two things for Margie to eyeball
+
+Data providers disagree slightly on sale dates, which is normal: one records the contract
+date, another the closing, another when the deed was recorded. 8 Bryce Ave reads as December
+2022 here and January 2023 on Redfin; 22 Lincoln Ave reads as December 2022 here and mid
+November elsewhere. Nothing worth chasing.
+
+**44 Tyrconnell Ave is worth chasing.** The Homes.com record has it at $562,000 in July 2022,
+2 bed, 1 bath, 978 sq ft. Public property data elsewhere describes the same address as 5 bed,
+1 bath, built 1927, last sold in 2013 for $247,600. One of those is about a different parcel
+or a different transaction. Margie will know in a second which, and it is the only row on the
+page with that kind of conflict behind it.
+
 Also from the record: an active listing at 44 Perry Ave, Bayville ($599,000, 3 bed, 811 sq ft),
 her licence number NY 40HO1125819, the phone number (516) 586-0245, and Hofstra University.
 
@@ -59,7 +72,7 @@ record shows $8.8M across five years. Public records only capture the deals wher
 recorded her as the agent, so an undercount is expected. But the page never adds them
 together, and it never prints a career volume as if it were verified.
 
-## Three things that have to be settled before this goes live
+## Four things that have to be settled before this goes live
 
 1. **Which brokerage.** Berkshire Hathaway HomeServices Laffey lists her in Williston Park.
    The public sale record and her active Bayville listing put her at Americana Realty Group,
@@ -72,35 +85,66 @@ together, and it never prints a career volume as if it were verified.
    a seller's trust, so it stays a slot until she sends one.
 
 3. **Three testimonials.** There are no public reviews to pull from anywhere, not Zillow,
-   not FastExpert, not her brokerage. These have to come from her directly. A first name and
-   a town beats an anonymous quote by a wide margin.
+   not FastExpert, not her brokerage. These have to come from her directly. Ask for ones that
+   carry a first name and a town; an anonymous quote reads like it was written in-house.
+
+4. **Two listing photo sets**, for 22 Lincoln Ave and 44 Tyrconnell Ave. See the photography
+   section below for why those two could not be retrieved.
 
 Her email address and office address are also unset.
 
 ## The photography
 
-Every photograph is generated locally on this machine through ComfyUI (DreamShaperXL Turbo),
-via `tools/gen_images.py`. None of it is a photograph of a real place, and none of it is a
-photograph of the properties in the record. Each property slide carries a visible
-*Representative image* marker and the footer says so in plain language.
+Margie and her brokerage granted rights to use her listing photography, so the property
+photographs on this page are the real ones: the OneKey MLS photo sets her listings carried,
+watermark and all. `tools/fetch_listing_photos.py` retrieves them and drops them in
+`img/real/`; `tools/sync_real_photos.py` compresses them and rewrites the `REAL` set in
+`index.html` from whatever is actually in that folder.
 
-That is a stand-in, not a solution. Margie's own listing photography is held by her brokerage
-and is what belongs here. To swap it in: drop the files into `img/`, and change the `img`
-field on the matching row of the `SALES` array near the bottom of `index.html`. Then delete
-the `.repnote` span from the slide template and the sentence in the footer.
-
-Real MLS photography could not be used here even as a placeholder: the images on Homes.com
-are hotlink-protected and CORS-blocked, and they are copyright of the listing photographers
-regardless.
+That last part matters. Any sale without a real photograph on disk falls back to a generated
+stand-in and shows a *Representative image* badge on its slide. Because the badge is driven by
+the folder rather than by anyone's memory, it cannot end up claiming more than the site holds.
+Run the sync after adding any photo:
 
 ```bash
-python tools/gen_images.py            # everything
-python tools/gen_images.py hero shore # just those two
+python tools/fetch_listing_photos.py     # everything still missing
+python tools/sync_real_photos.py         # compress, then update the REAL set
 ```
 
-If the renders hang with the GPU pinned at 100%, ComfyUI is holding the whole card and
-thrashing the model in and out of system RAM. Killing and restarting the ComfyUI process
-released 8.4 GB of VRAM and took a render from nineteen minutes back to about sixteen seconds.
+### Where the photos come from, and what is still missing
+
+Homes.com holds the best masters at 1900px, but it blocks every non-browser client at the edge
+and refuses cross-origin reads, so it cannot be scripted. Zillow (`cc_ft_1536`) and Redfin
+(`bigphoto`, about 1280px) both work. Both throttle hard after roughly eight quick requests,
+which is why `PAGE_DELAY` is set to 75 seconds. Leave it slow.
+
+Six of the ten properties have their real photograph on the page. Four do not, and each of
+those four shows a *Representative image* badge:
+
+| Property | Why not |
+|---|---|
+| 22 Lincoln Ave, Glen Head | MLS #3430002. The listing page on Berkshire Hathaway HomeServices Laffey came down after the sale, and the address is not indexed on Zillow or Redfin. |
+| 44 Tyrconnell Ave, Massapequa Park | Not indexed on Zillow or Redfin either. See the data conflict noted above. |
+| 98 Cortelyou St, Islip | Zillow only (zpid 82666298), and Zillow was throttling this IP by the time its turn came round. Retry later; it should come through. |
+| 61 Robinwood Ave, Hempstead | Same as Islip. Zillow only (zpid 31218306), throttled. |
+
+The last two are a matter of waiting out a rate limit. Run
+`python tools/fetch_listing_photos.py islip robinwood` again after an hour and they will
+almost certainly land. The first two need Margie: they are her own listings, so asking her
+for the two photo sets is faster than any amount of scraping. Drop them in `img/real/` as
+`p-glen-head.jpg` and `p-tyrconnell.jpg`, run the sync, and their badges disappear.
+
+The hero, shoreline and village images are generated, not photographs of real places. They are
+atmosphere rather than property, and none of them claims to be a specific address.
+
+### One thing that came off the page
+
+Earlier drafts labelled each sale with an architectural style: "Center-hall colonial",
+"Expanded cape", and so on. Those were read off the bed, bath and square-foot figures rather
+than taken from the record, and the real photograph of 214 Lawrence Lane turned out to be a
+ranch where the page had guessed a cape. A page whose argument is that every figure on it can
+be checked cannot carry a guess, so the style labels are gone. Each row now shows the town,
+the bed count, and the square footage, all of which are in the record.
 
 ## Running it
 

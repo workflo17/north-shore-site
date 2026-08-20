@@ -685,7 +685,7 @@
       </div>
     </div>
 
-    <p class="note">Addresses, closing prices, days on market and the percentage against asking all come from the public sale record on Margie's <a href="https://www.homes.com/real-estate-agents/margie-horowitz/k2g7gxc/">Homes.com profile</a>, covering the last five years. Photographs are representative, not the houses themselves: her own listing photography is held by the brokerage and has to be supplied before this page goes live.</p>
+    <p class="note">Addresses, closing prices, days on market and the percentage against asking all come from the public sale record on Margie's <a href="https://www.homes.com/real-estate-agents/margie-horowitz/k2g7gxc/">Homes.com profile</a>, covering the last five years. The photographs are Margie's own listing photography, used with her permission and her brokerage's. Any slide marked <em>Representative image</em> is the exception: that sale's photo set has not been recovered yet, so the picture there is a stand-in rather than the house.</p>
   </div>
 </section>
 
@@ -699,10 +699,10 @@
     <p class="note">Sorted by closing price. A negative figure means the house sold under what it was asking, which happens to every agent and is worth seeing before you hire one.</p>
 
     <div class="live">
-      <div class="shot">
+      <div class="shot" id="liveshot">
         <span class="flag">On the market now</span>
-        <img src="img/p-perry.jpg" alt="A shingled beach cottage with white trim near the water" width="1216" height="832" loading="lazy">
-        <span class="repnote">Representative image</span>
+        <img id="liveimg" src="img/p-perry.jpg" width="1216" height="832" loading="lazy"
+             alt="A shingled beach cottage with white trim near the water">
       </div>
       <div>
         <p class="eyebrow" style="margin-bottom:14px">Currently listed</p>
@@ -921,7 +921,7 @@
     </div>
     <div class="legal">
       <p><span class="eho">Equal Housing Opportunity</span> All information is deemed reliable but is not guaranteed and should be independently verified. Sale figures are drawn from the public record and may not reflect every transaction. Net proceeds figures are estimates for planning only and are not a closing statement; your attorney and a full comparative market analysis produce the binding numbers. Commission rates are negotiable and are not set by any brokerage, board, or association.</p>
-      <p>Property photographs on this page are representative images, not photographs of the properties listed, and are to be replaced with the brokerage's own listing photography before publication.</p>
+      <p>Property photographs are the listing photography for the properties shown, used by permission of Margie Horowitz and her brokerage. Where a photograph could not be recovered the slide carries a "Representative image" mark and shows a stand-in rather than the property. Hero and landscape images are illustrative and are not photographs of specific places.</p>
       <p style="margin-bottom:0">Office address, brokerage disclosures, and the New York Standard Operating Procedures and Fair Housing notices are to be added before publication.</p>
     </div>
   </div>
@@ -933,18 +933,24 @@
    on Margie's Homes.com profile. `pct` is the reported percentage
    against the asking price; the asking price itself is not published,
    so the page never prints one.
-   To swap in real listing photography, replace `img` with the filename.
 ------------------------------------------------------------------ */
+/* Which sales have Margie's own listing photograph on file, from her brokerage and the
+   MLS set. Anything not in here falls back to a generated stand-in and says so on the
+   slide, so the badge can never claim more than the folder actually holds.
+   tools/sync_real_photos.py rewrites this line from what is in img/real/. */
+const REAL = new Set(["p-albertson", "p-brooklyn", "p-bryce", "p-lawrence", "p-perry", "p-seaford"]);
+const photoSrc = key => REAL.has(key) ? `img/real/${key}.jpg` : `img/${key}.jpg`;
+
 const SALES = [
-  { addr:"22 Lincoln Ave",    town:"Glen Head, NY",       sold:1500000, pct: 7,  dom:16,  bd:4, ba:2.5, sf:3000, when:"December 2022", kind:"Center-hall colonial",  img:"p-glen-head" },
-  { addr:"1542 84th St",      town:"Brooklyn, NY",        sold:988000,  pct:-14, dom:75,  bd:4, ba:2.5, sf:1825, when:"March 2023",    kind:"Semi-detached brick",   img:"p-brooklyn" },
-  { addr:"2631 Irene Ln",     town:"Seaford, NY",         sold:950000,  pct: 6,  dom:9,   bd:5, ba:2,   sf:2992, when:"June 2022",     kind:"Expanded split level",  img:"p-seaford" },
-  { addr:"6 Wood Ave",        town:"Albertson, NY",       sold:830000,  pct: 4,  dom:17,  bd:3, ba:2,   sf:1230, when:"October 2022",  kind:"Expanded cape",         img:"p-albertson" },
-  { addr:"98 Cortelyou St",   town:"Islip, NY",           sold:670000,  pct: 3,  dom:107, bd:5, ba:2,   sf:2000, when:"April 2024",    kind:"Village colonial",      img:"p-islip" },
-  { addr:"214 Lawrence Ln",   town:"Glen Cove, NY",       sold:661500,  pct:-5,  dom:31,  bd:3, ba:1,   sf:1278, when:"November 2022", kind:"Cape",                  img:"p-lawrence" },
-  { addr:"44 Tyrconnell Ave", town:"Massapequa Park, NY", sold:562000,  pct: 2,  dom:17,  bd:2, ba:1,   sf:978,  when:"July 2022",     kind:"Cottage",               img:"p-tyrconnell" },
-  { addr:"8 Bryce Ave",       town:"Glen Cove, NY",       sold:560000,  pct:-5,  dom:56,  bd:4, ba:2,   sf:1238, when:"December 2022", kind:"Ranch",                 img:"p-bryce" },
-  { addr:"61 Robinwood Ave",  town:"Hempstead, NY",       sold:525000,  pct:-4,  dom:35,  bd:3, ba:1,   sf:1000, when:"September 2023",kind:"Cape",                  img:"p-robinwood" },
+  { addr:"22 Lincoln Ave",    town:"Glen Head, NY",       sold:1500000, pct: 7,  dom:16,  bd:4, ba:2.5, sf:3000, when:"December 2022",  img:"p-glen-head" },
+  { addr:"1542 84th St",      town:"Brooklyn, NY",        sold:988000,  pct:-14, dom:75,  bd:4, ba:2.5, sf:1825, when:"March 2023",   img:"p-brooklyn" },
+  { addr:"2631 Irene Ln",     town:"Seaford, NY",         sold:950000,  pct: 6,  dom:9,   bd:5, ba:2,   sf:2992, when:"June 2022",  img:"p-seaford" },
+  { addr:"6 Wood Ave",        town:"Albertson, NY",       sold:830000,  pct: 4,  dom:17,  bd:3, ba:2,   sf:1230, when:"October 2022",         img:"p-albertson" },
+  { addr:"98 Cortelyou St",   town:"Islip, NY",           sold:670000,  pct: 3,  dom:107, bd:5, ba:2,   sf:2000, when:"April 2024",      img:"p-islip" },
+  { addr:"214 Lawrence Ln",   town:"Glen Cove, NY",       sold:661500,  pct:-5,  dom:31,  bd:3, ba:1,   sf:1278, when:"November 2022",                  img:"p-lawrence" },
+  { addr:"44 Tyrconnell Ave", town:"Massapequa Park, NY", sold:562000,  pct: 2,  dom:17,  bd:2, ba:1,   sf:978,  when:"July 2022",               img:"p-tyrconnell" },
+  { addr:"8 Bryce Ave",       town:"Glen Cove, NY",       sold:560000,  pct:-5,  dom:56,  bd:4, ba:2,   sf:1238, when:"December 2022",                 img:"p-bryce" },
+  { addr:"61 Robinwood Ave",  town:"Hempstead, NY",       sold:525000,  pct:-4,  dom:35,  bd:3, ba:1,   sf:1000, when:"September 2023",                  img:"p-robinwood" },
 ];
 
 const money = n => "$" + n.toLocaleString("en-US");
@@ -971,9 +977,12 @@ slidesEl.innerHTML = SALES.map((s, i) => `
   <article class="sale" role="tabpanel" aria-label="${i + 1} of ${SALES.length}: ${s.addr}, ${s.town}">
     <div class="photo">
       <span class="stamp">Sold &middot; ${s.when}</span>
-      <img src="img/${s.img}.jpg" alt="${s.kind} of the kind sold at ${s.addr}, ${s.town}"
-           width="1216" height="832" loading="${i < 2 ? "eager" : "lazy"}">
-      <span class="repnote">Representative image</span>
+      <img src="${photoSrc(s.img)}" width="1216" height="832"
+           loading="${i < 2 ? "eager" : "lazy"}"
+           alt="${REAL.has(s.img)
+                 ? `${s.addr}, ${s.town}, as it was listed`
+                 : `A stand-in photograph for ${s.addr}, ${s.town}`}">
+      ${REAL.has(s.img) ? "" : '<span class="repnote">Representative image</span>'}
     </div>
     <div class="facts">
       <h3 class="addr">${s.addr}</h3>
@@ -1052,12 +1061,24 @@ carousel.addEventListener("keydown", e => {
 });
 document.addEventListener("visibilitychange", () => document.hidden && stop());
 
+/* ---------- the live listing card uses the same photo rule ---------- */
+{
+  const img = document.getElementById("liveimg");
+  img.src = photoSrc("p-perry");
+  if (REAL.has("p-perry")) {
+    img.alt = "44 Perry Avenue, Bayville, as it is listed";
+  } else {
+    document.getElementById("liveshot").insertAdjacentHTML(
+      "beforeend", '<span class="repnote">Representative image</span>');
+  }
+}
+
 /* ---------- the same nine as a list ---------- */
 document.getElementById("record").insertAdjacentHTML("beforeend", SALES.map(s => `
   <div class="rrow">
     <div class="where">
       <span class="street">${s.addr}</span>
-      <span class="place">${s.town} &middot; ${s.kind} &middot; ${s.bd} bed</span>
+      <span class="place">${s.town} &middot; ${s.bd} bed &middot; ${s.sf.toLocaleString("en-US")} sq ft</span>
     </div>
     <div class="amt">${money(s.sold)}</div>
     <div class="line">${askline(s.pct)}</div>
