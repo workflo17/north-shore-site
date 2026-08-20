@@ -1007,8 +1007,19 @@ const slideEls = [...slidesEl.children];
 const dotEls = [...dotsEl.children];
 let index = 0;
 
+/* Lazy images inside a horizontal scroll container never come into view as far as the
+   browser is concerned, so nothing past the second slide would ever load on its own.
+   Promote a slide and its neighbours to eager just before they are needed. */
+function warm(i) {
+  for (const n of [i - 1, i, i + 1]) {
+    const img = slideEls[(n + SALES.length) % SALES.length]?.querySelector("img");
+    if (img && img.loading === "lazy") img.loading = "eager";
+  }
+}
+
 function goTo(i, smooth = true) {
   index = (i + SALES.length) % SALES.length;
+  warm(index);
   const target = slideEls[index];
   slidesEl.scrollTo({ left: target.offsetLeft - slidesEl.offsetLeft, behavior: smooth ? "smooth" : "auto" });
   dotEls.forEach((d, n) => d.setAttribute("aria-current", String(n === index)));
@@ -1030,6 +1041,7 @@ slidesEl.addEventListener("scroll", () => {
       if (Math.abs(c - mid) < best) { best = Math.abs(c - mid); nearest = n; }
     });
     index = nearest;
+    warm(index);
     dotEls.forEach((d, n) => d.setAttribute("aria-current", String(n === index)));
   }, 90);
 }, { passive: true });
@@ -1098,6 +1110,10 @@ const io = new IntersectionObserver((entries, obs) => {
 }, { rootMargin: "0px 0px -8% 0px", threshold: .12 });
 
 document.querySelectorAll(".rise").forEach(el => io.observe(el));
+
+new IntersectionObserver((entries, obs) => {
+  entries.forEach(e => { if (e.isIntersecting) { warm(index); obs.disconnect(); } });
+}, { threshold: .05 }).observe(carousel);
 
 /* ---------- the form ----------
    No backend on a concept page, so this validates, reports, and stops. */
